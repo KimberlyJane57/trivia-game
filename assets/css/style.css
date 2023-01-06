@@ -19,6 +19,16 @@
     align-items: center;
     justify-content: space-between;
 }
+.start-btn {
+    display: flex;
+    justify-content: center;
+}
+#start-btn{
+    border: none;
+    background-color: lightgrey;
+    font-weight: bold;
+    border-radius: 5px;
+}
 .questions {
-    
+
 }
