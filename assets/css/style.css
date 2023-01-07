@@ -1,5 +1,5 @@
 * {
-    margin: 0.5%;
+    margin: 1%;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     color: black;
@@ -19,6 +19,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.timer {
+
+}
 .start-btn {
     display: flex;
     justify-content: center;
@@ -31,4 +34,12 @@
 }
 .questions {
 
+}
+.answer-btns{
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+.mc-btn {
+    border: none;
 }
