@@ -1,15 +1,43 @@
 const scorecard = document.querySelector('.scorecard')
 const timer = document.querySelector('.timer')
-const startbtn = document.querySelector('#start-btn')
+const startBtn = document.querySelector('#start-btn')
 const questions = document.querySelector('.questions')
 const answerBtn = document.querySelector('.answer-btns')
 const abcdBtn = document.querySelector('#abcd-btns')
 const multipleChoice = document.querySelector('.mc-btn')
 const startTime = 60;
+const questionsArray = [
+    {
+        question: "The question goes here?",
+        answers: [
+            {
+                letter: "A",
+                text: "Answer for A"
+
+            },
+            {
+                letter: "B",
+                text: "Answer for B"
+
+            },
+            {
+                letter: "C",
+                text: "Answer for C"
+
+            },
+            {
+                letter: "D",
+                text: "Answer for D"
+
+            },
+        ],
+        solution: "A"
+    },
+]
+
+startBtn.addEventListener('click', start)
 
 function start() {
-    console.log('Started')
-    nextQuestion()
 }
 
 
