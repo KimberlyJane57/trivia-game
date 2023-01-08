@@ -1,12 +1,44 @@
-const scorecard = document.querySelector('#scorecard');
-const timer = document.querySelector('#timer');
-const startBtn = document.querySelector('#start-btn');
-const questions = document.querySelector('.questions');
-const answerBtn = document.querySelector('.answer-btns');
-const abcdBtn = document.querySelector('#abcd-btns');
-const multipleChoice = document.querySelector('.mc-btn');
-const startTime = 60;
-const score = 100;
+const scorecard = document.getElementById('scorecard');
+const startBtn = document.getElementById('start-btn');
+const questions = document.getElementsByClassName('questions');
+const hide = document.getElementById('hide')
+const answerBtn = document.getElementsByClassName('answer-btns');
+const abcdBtn = document.getElementById('abcd-btns');
+const multipleChoice = document.getElementsByClassName('mc-btn');
+let score = 100;
+let startTime = 60;
+const timer = document.getElementById('timer');
+
+let questionsList
+
+startBtn.addEventListener('click', start)
+
+function start() {
+    questionsList = 0
+    questions.classList.remove('hide')
+    nextQuestion()
+};
+
+function nextQuestion() {
+    
+};
+
+function selection() {
+    
+};
+
+function countdown () {
+    let countdownTimer = setInterval(function() {
+        if (countdownTimer <= 0) {
+            clearInterval(countdownTimer);
+        } else {
+            countdownTimer--;
+            seconds = Math.floor(startTime % 60);
+            timer.innerHTML = `00:${seconds}`;
+        }
+    },1000)
+};
+
 const questionsArray = [
     {
         question: '1. Which house was Harry Potter almost sorted into?',
@@ -67,19 +99,3 @@ const questionsArray = [
 ];
 const numberOfQuestions = 7;
 
-
-startBtn.addEventListener('click', start)
-
-function start() {
-    
-
-};
-
-
-function nextQuestion() {
-
-}
-
-function selection() {
-
-}

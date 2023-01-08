@@ -48,6 +48,8 @@
 }
 .mc-btn {
     border: none;
+    text-align: left;
+    width: fit-content;
 }
 .mc-btn:hover {
     background-color: gray;
