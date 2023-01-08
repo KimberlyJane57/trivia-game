@@ -1,12 +1,9 @@
 const scorecard = document.getElementById('scorecard');
 const startBtn = document.getElementById('start-btn');
-const questions = document.getElementsByClassName('questions');
 const answerBtn = document.getElementsByClassName('answer-btns');
 const abcdBtn = document.getElementById('abcd-btns');
-const multipleChoice = document.getElementsByClassName('mc-btn');
+const multipleChoice = document.getElementById('mc-btn');
 let score = 100;
-let startTime = 60;
-const timer = document.getElementById('timer');
 
 const totalScore = 100;
 const numberOfQuestions = 7;
@@ -15,22 +12,31 @@ let curentSelection = 0
 
 
 startBtn.addEventListener('click', start)
+multipleChoice.addEventListener('click', nextQuestion)
+
+function getCurrentSelection() {
+    let current = document.getElementById(curentSelection)
+    return current
+}
+function toggleHide(current){
+    current.classList.toggle('hide')
+}
 
 function start() {
     console.log ('start')
     console.log ('hide' + curentSelection)
-    let current = document.getElementsByClassName ('hide'+curentSelection)
-    current.classList.remove('hide'+curentSelection)
-
+    let current = getCurrentSelection()
+    toggleHide(current)
 };
-
 function nextQuestion() {
-    
-};
+    let current = getCurrentSelection()
+    toggleHide(current)
+    console.log('ahhh')
+    curentSelection +=1
+    current=getCurrentSelection()
+    toggleHide(current)
+} 
 
-function selection() {
-    
-};
 
 
 const questionsArray = [
@@ -92,8 +98,11 @@ const questionsArray = [
     } 
 ];
 
+let startTime = 60;
+const timer = document.getElementById('timer');
 
 function countdown () {
+    console.log ('what!')
     let countdownTimer = setInterval(function() {
         if (countdownTimer <= 0) {
             clearInterval(countdownTimer);
