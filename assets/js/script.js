@@ -8,32 +8,56 @@ const multipleChoice = document.querySelector('.mc-btn')
 const startTime = 60;
 const questionsArray = [
     {
-        question: "The question goes here?",
-        answers: [
-            {
-                letter: "A",
-                text: "Answer for A"
-
-            },
-            {
-                letter: "B",
-                text: "Answer for B"
-
-            },
-            {
-                letter: "C",
-                text: "Answer for C"
-
-            },
-            {
-                letter: "D",
-                text: "Answer for D"
-
-            },
-        ],
-        solution: "A"
-    },
+        question: 'The question goes here?',
+        optionA: 'A',
+        optionA: 'B',
+        optionA: 'C',
+        optionA: 'D',
+    },  
+    {
+        question: 'The question goes here?',
+        optionA: 'A',
+        optionA: 'B',
+        optionA: 'C',
+        optionA: 'D',
+    },  
+    {
+        question: 'The question goes here?',
+        optionA: 'A',
+        optionA: 'B',
+        optionA: 'C',
+        optionA: 'D',
+    },  
+    {
+        question: 'The question goes here?',
+        optionA: 'A',
+        optionA: 'B',
+        optionA: 'C',
+        optionA: 'D',
+    },  
+    {
+        question: 'The question goes here?',
+        optionA: 'A',
+        optionA: 'B',
+        optionA: 'C',
+        optionA: 'D',
+    },  
+    {
+        question: 'The question goes here?',
+        optionA: 'A',
+        optionA: 'B',
+        optionA: 'C',
+        optionA: 'D',
+    },  
+    {
+        question: 'The question goes here?',
+        optionA: 'A',
+        optionA: 'B',
+        optionA: 'C',
+        optionA: 'D',
+    },    
 ]
+const answerArray = ['C','D','C','A','C','B','B']
 
 startBtn.addEventListener('click', start)
 
