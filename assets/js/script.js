@@ -1,7 +1,6 @@
 const scorecard = document.getElementById('scorecard');
 const startBtn = document.getElementById('start-btn');
 const questions = document.getElementsByClassName('questions');
-const hide = document.getElementById('hide')
 const answerBtn = document.getElementsByClassName('answer-btns');
 const abcdBtn = document.getElementById('abcd-btns');
 const multipleChoice = document.getElementsByClassName('mc-btn');
@@ -9,14 +8,20 @@ let score = 100;
 let startTime = 60;
 const timer = document.getElementById('timer');
 
-let questionsList
+const totalScore = 100;
+const numberOfQuestions = 7;
+
+let curentSelection = 0
+
 
 startBtn.addEventListener('click', start)
 
 function start() {
-    questionsList = 0
-    questions.classList.remove('hide')
-    nextQuestion()
+    console.log ('start')
+    console.log ('hide' + curentSelection)
+    let current = document.getElementsByClassName ('hide'+curentSelection)
+    current.classList.remove('hide'+curentSelection)
+
 };
 
 function nextQuestion() {
@@ -27,17 +32,6 @@ function selection() {
     
 };
 
-function countdown () {
-    let countdownTimer = setInterval(function() {
-        if (countdownTimer <= 0) {
-            clearInterval(countdownTimer);
-        } else {
-            countdownTimer--;
-            seconds = Math.floor(startTime % 60);
-            timer.innerHTML = `00:${seconds}`;
-        }
-    },1000)
-};
 
 const questionsArray = [
     {
@@ -97,5 +91,16 @@ const questionsArray = [
         answer: 2,
     } 
 ];
-const numberOfQuestions = 7;
 
+
+function countdown () {
+    let countdownTimer = setInterval(function() {
+        if (countdownTimer <= 0) {
+            clearInterval(countdownTimer);
+        } else {
+            countdownTimer--;
+            seconds = Math.floor(startTime % 60);
+            timer.innerHTML = `00:${seconds}`;
+        }
+    },1000)
+};
