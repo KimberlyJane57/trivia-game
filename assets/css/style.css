@@ -35,6 +35,9 @@
     font-weight: bold;
     border-radius: 5px;
 }
+#start-btn:hover{
+    background-color: white;
+}
 .questions {
 
 }
