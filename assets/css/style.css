@@ -44,12 +44,12 @@
     flex-direction: column;
     margin: 1%;
 }
-.mc-btn {
+#mc-btn {
     border: none;
     text-align: left;
     width: fit-content;
 }
-.mc-btn:hover {
+#mc-btn:hover {
     background-color: gray;
     color: white;
 }

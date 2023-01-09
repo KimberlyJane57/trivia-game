@@ -2,7 +2,16 @@ const scorecard = document.getElementById('scorecard');
 const startBtn = document.getElementById('start-btn');
 const answerBtn = document.getElementsByClassName('answer-btns');
 const abcdBtn = document.getElementById('abcd-btns');
-const multipleChoice = document.getElementById('mc-btn');
+const multipleCh = [
+    document.getElementById('form0'),
+    document.getElementById('form1'),
+    document.getElementById('form2'),
+    document.getElementById('form3'),
+    document.getElementById('form4'),
+    document.getElementById('form5'),
+    document.getElementById('form6')
+]
+const answer = ['C','D','C','A','C','B','B']
 let score = 100;
 
 const totalScore = 100;
@@ -12,7 +21,9 @@ let curentSelection = 0
 
 
 startBtn.addEventListener('click', start)
-multipleChoice.addEventListener('click', nextQuestion)
+multipleCh.forEach((answer) => {
+    answer.addEventListener('submit',nextQuestion)
+})
 
 function getCurrentSelection() {
     let current = document.getElementById(curentSelection)
@@ -28,10 +39,11 @@ function start() {
     let current = getCurrentSelection()
     toggleHide(current)
 };
-function nextQuestion() {
+function nextQuestion(event) {
+    event.preventDefault()
     let current = getCurrentSelection()
     toggleHide(current)
-    console.log('ahhh')
+    console.log(event)
     curentSelection +=1
     current=getCurrentSelection()
     toggleHide(current)
