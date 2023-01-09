@@ -11,7 +11,7 @@ const multipleCh = [
     document.getElementById('form5'),
     document.getElementById('form6')
 ]
-const answer = ['C','D','C','A','C','B','B']
+const answers = ['C','D','C','A','C','B','B']
 let score = 100;
 
 const totalScore = 100;
@@ -25,7 +25,7 @@ multipleCh.forEach((answer) => {
     answer.addEventListener('submit',nextQuestion)
 })
 
-function getCurrentSelection() {
+function getCurrentSelection(){
     let current = document.getElementById(curentSelection)
     return current
 }
@@ -39,17 +39,42 @@ function start() {
     let current = getCurrentSelection()
     toggleHide(current)
 };
-function nextQuestion(event) {
+function nextQuestion(event){
     event.preventDefault()
     let current = getCurrentSelection()
     toggleHide(current)
-    console.log(event)
+    let isCorrect=verifyAnswer()
+    if (!isCorrect)console.log('Subtract time')
     curentSelection +=1
     current=getCurrentSelection()
     toggleHide(current)
 } 
+function verifyAnswer(){
+    let answer
+    let radios=document.getElementsByName('q'+curentSelection)
+    radios.forEach((r)=>{if(r.checked)answer=r.value})
+    if (answer==answers[curentSelection]){
+        return true
+    }
+    return false
+}
 
 
+let startTime = 60;
+const timer = document.getElementById('timer');
+
+function countdown () {
+    console.log ('what!')
+    let countdownTimer = setInterval(function() {
+        if (countdownTimer <= 0) {
+            clearInterval(countdownTimer);
+        } else {
+            countdownTimer--;
+            seconds = Math.floor(startTime % 60);
+            timer.innerHTML = `00:${seconds}`;
+        }
+    },1000)
+};
 
 const questionsArray = [
     {
@@ -109,19 +134,3 @@ const questionsArray = [
         answer: 2,
     } 
 ];
-
-let startTime = 60;
-const timer = document.getElementById('timer');
-
-function countdown () {
-    console.log ('what!')
-    let countdownTimer = setInterval(function() {
-        if (countdownTimer <= 0) {
-            clearInterval(countdownTimer);
-        } else {
-            countdownTimer--;
-            seconds = Math.floor(startTime % 60);
-            timer.innerHTML = `00:${seconds}`;
-        }
-    },1000)
-};
