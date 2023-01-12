@@ -1,3 +1,4 @@
+let seconds = 59;
 const scorecard = document.getElementById('scorecard');
 const startBtn = document.getElementById('start-btn');
 const answerBtn = document.getElementsByClassName('answer-btns');
@@ -38,13 +39,20 @@ function start() {
     console.log ('hide' + curentSelection)
     let current = getCurrentSelection()
     toggleHide(current)
+    countdown()
 };
 function nextQuestion(event){
     event.preventDefault()
     let current = getCurrentSelection()
     toggleHide(current)
     let isCorrect=verifyAnswer()
-    if (!isCorrect)console.log('Subtract time')
+    if (!isCorrect) {
+        if(seconds-5<0){
+            seconds=0
+        } else {
+            seconds=seconds-5
+        }
+    }
     curentSelection +=1
     current=getCurrentSelection()
     toggleHide(current)
@@ -59,22 +67,24 @@ function verifyAnswer(){
     return false
 }
 
+function countdown() {
+    function tick() {
+      let timer = document.getElementById("timer");
+      seconds--;
+      timer.innerHTML =
+        "0:" + (seconds < 10 ? "0" : "") + String(seconds);
+      if (seconds > 0) {
+        setTimeout(tick, 1000);
+      } else {
+        document.getElementById("timer").innerHTML = "";
+        let current=getCurrentSelection()
+        toggleHide(current)
+      }
+    }
+    tick();
+  }
 
-let startTime = 60;
-const timer = document.getElementById('timer');
-
-function countdown () {
-    console.log ('what!')
-    let countdownTimer = setInterval(function() {
-        if (countdownTimer <= 0) {
-            clearInterval(countdownTimer);
-        } else {
-            countdownTimer--;
-            seconds = Math.floor(startTime % 60);
-            timer.innerHTML = `00:${seconds}`;
-        }
-    },1000)
-};
+  
 
 const questionsArray = [
     {
